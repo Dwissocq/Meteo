@@ -1,0 +1,20 @@
+#choice{
+    border: 1px dashed orange;
+    padding: 5px;
+    text-align: center;
+}
+
+nav{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h2{
+    margin:10px;
+}
+
+#result{
+    border: 1px dashed blue;
+    padding: 5px;
+    text-align: center;
+}
