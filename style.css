@@ -1,7 +1,5 @@
 #choice{
     border: 1px dashed orange;
-    padding: 5px;
-    text-align: center;
 }
 
 nav{
@@ -15,6 +13,11 @@ h2{
 
 #result{
     border: 1px dashed blue;
+
+}
+
+div{
     padding: 5px;
     text-align: center;
+    margin: 5px;
 }
