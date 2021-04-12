@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>Ma Météo</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -11,16 +11,16 @@
     </h1>
 </header>
 <nav>
-    <h2>
+    <h2 id="lastMesure">
         Dernière mesure
     </h2>
-    <h2>
+    <h2 id="topMesure">
         Top mesures
     </h2>
-    <h2>
+    <h2 id="tableMesure">
         Tableaux de mesures
     </h2>
-    <h2>
+    <h2 id="chartMesure">
         Graphiques de mesures
     </h2>
 </nav>
@@ -29,14 +29,15 @@
     <label for="mesure">Quelle mesure vous intéresse ?</label>
     <select id="mesure">
         <option value="">Choisir votre option</option>
-        <option value="temperature">Temperature</option>
-        <option value="humidity">Humidity</option>
-        <option value="pression">Pression</option>
-        <option value="co2">co2</option>
-        <option value="voc">voc</option>
+        <option value="TEMPERATURE">Temperature</option>
+        <option value="HUMIDITY">Humidity</option>
+        <option value="PRESSURE">Pression</option>
+        <option value="CO2">co2</option>
+        <option value="VOC">voc</option>
+    </select>
 </div>
 <div id="result">
-<p>vide 1234</p>
+
 </div>
 </body>
 <script src="script.js"></script>
