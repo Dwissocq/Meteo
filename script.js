@@ -162,7 +162,7 @@ nav[2].addEventListener("click", function () {
 
 
 
-        // Affichage - à modifier
+        // Affichage - à modifier .
         // let h3 = document.createElement("h3");
         // let measureDate = new Date(result.measureDate);
         // h3.textContent = nav[1].textContent + " du " + measureDate.getDate() // à noter la possibilité d'utiliser la fonction .slice (1,10)
