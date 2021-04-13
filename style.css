@@ -1,23 +1,37 @@
-#choice{
+html{
+    font-family: Calibri;
+}
+
+#choice {
     border: 1px dashed orange;
 }
 
-nav{
+nav {
     display: flex;
     flex-wrap: wrap;
 }
 
-h2{
-    margin:10px;
+h2 {
+    margin: 10px;
 }
 
-#result{
+#result {
     border: 1px dashed blue;
+    flex-direction: column;
 
 }
 
-div{
+div {
     padding: 5px;
     text-align: center;
-    margin: 5px;
+    margin: auto;
+    align-content: center;
+    align-items: center;
+    display: flex;
+}
+
+table, td, th, tr {
+    border-collapse: collapse;
+    border: 1px black solid;
+    padding:5px;
 }

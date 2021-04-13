@@ -90,14 +90,20 @@ nav[1].addEventListener("click", function () {
 nav[2].addEventListener("click", function () {
 
     // ajouter le cadre pour choisir les dates
+    let today = new Date()
     let inputDateStart = document.createElement("input");
     inputDateStart.type = "datetime-local";
     inputDateStart.id = "Start";
+    inputDateStart.textContent= new Date();
+    console.log(today);
+    console.log(inputDateStart);
     let labelSD = document.createElement("label");
     labelSD.textContent = "Date de début";
     let inputDateEnd = document.createElement("input");
     inputDateEnd.type = "datetime-local";
     inputDateEnd.id = "End";
+    inputDateEnd.value= new Date();
+    inputDateEnd.min= inputDateStart.value;
     let labelED = document.createElement("label");
     labelED.textContent = "Date de fin";
 
@@ -119,47 +125,57 @@ nav[2].addEventListener("click", function () {
         console.log(document.getElementById("Start").value);
         console.log(document.getElementById("End").value);
     }
+    // Supprimer le bloc résultat s'il existe
+    let deleteResult = document.getElementById("result");
+    if (deleteResult.firstElementChild !== null) {
+        deleteResult.removeChild(deleteResult.firstElementChild);
+    }
 
-// Selection des dates par l'utilisateur
+    // Créer le tableau vide sur la page
+    let tableResult = document.createElement("table");
+    document.getElementById("result").appendChild(tableResult);
+
+    // Création des entêtes
+    let tableHead = document.createElement("thead");
+    tableResult.appendChild(tableHead);
+
+    let headRow = document.createElement("tr");
+    tableHead.appendChild(headRow);
+
+    let th1 = document.createElement("th");
+    th1.textContent = "Date";
+    headRow.appendChild(th1);
+
+    let th2 = document.createElement("th");
+    th2.textContent = "Valeur de mesure";
+    headRow.appendChild(th2);
+
+
+    // Création des données du tableau
+    let tableBody = document.createElement("tbody");
+    tableResult.appendChild(tableBody);
+
 
 // Récupération des données sur le serveur
     fetch(baseApiUrl + '?measure-type=' + select.value + '&start-date=' + dateStartChoice.value + '&end-date=' + dateEndChoice.value).then(function (response) {
         response.json().then(function (result) {
-            console.log(result);
+            for (let i = 0; i < result.length; i++) {
+                let measureDate = new Date(result[i].measureDate);
+                let date = measureDate.getDate() +"/" +measureDate.getMonth()+"/"+measureDate.getFullYear()+ " "+ measureDate.getHours()+":"+measureDate.getMinutes()+":"+measureDate.getSeconds();
+                console.log(date);
+                let value = result[i].value + " " + result[i].unit;
+                console.log(value);
+                let newRow = document.createElement("tr")
+                let td1 = document.createElement("td");
+                td1.textContent = date;
+                newRow.appendChild(td1);
+                let td2 = document.createElement("td");
+                td2.textContent = value ;
+                newRow.appendChild(td2);
+
+                tableBody.appendChild(newRow);
+            }
         });
-
-        // Supprimer le bloc résultat s'il existe
-        let deleteResult = document.getElementById("result");
-        if (deleteResult.firstElementChild !== null) {
-            deleteResult.removeChild(deleteResult.firstElementChild);
-        }
-        // Créer le tableau sur la page
-
-        let tableResult = document.createElement("table");
-        let tableHead = document.createElement("thead");
-
-        let headRow = document.createElement("tr");
-        document.getElementById("result").appendChild(headRow);
-
-        let th1 = document.createElement("th");
-        th1.textContent = "Date";
-        headRow.appendChild(th1);
-
-        let th2 = document.createElement("th");
-        th2.textContent = "Valeurs de mesure";
-        headRow.appendChild(th2);
-
-        let newRow = document.createElement("tr")
-        document.getElementById("result").appendChild(newRow);
-
-        let td1 = document.createElement("td");
-        td1.textContent = "test 1";
-        newRow.appendChild(td1);
-
-        let td2 = document.createElement("td");
-        td2.textContent = "test 2";
-        newRow.appendChild(td2);
-
 
 
         // Affichage - à modifier
