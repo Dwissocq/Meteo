@@ -1,4 +1,4 @@
-html{
+html {
     font-family: Calibri;
 }
 
@@ -9,29 +9,47 @@ html{
 nav {
     display: flex;
     flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+
+}
+
+header {
+    text-align: center;
+    background-color: skyblue;
 }
 
 h2 {
+    font-size: 1.2em;
     margin: 10px;
-}
-
-#result {
-    border: 1px dashed blue;
-    flex-direction: column;
-
 }
 
 div {
     padding: 5px;
     text-align: center;
-    margin: auto;
+    margin: 10px;
     align-content: center;
     align-items: center;
+    justify-content: center;
+}
+
+#result {
+    border: 1px dashed blue;
     display: flex;
+    flex-direction: column;
 }
 
 table, td, th, tr {
     border-collapse: collapse;
     border: 1px black solid;
-    padding:5px;
+    padding: 5px;
+}
+
+label {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+thead {
+    background-color: lightskyblue;
 }

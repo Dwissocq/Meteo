@@ -94,15 +94,13 @@ nav[2].addEventListener("click", function () {
     let inputDateStart = document.createElement("input");
     inputDateStart.type = "datetime-local";
     inputDateStart.id = "Start";
-    inputDateStart.textContent= new Date();
-    console.log(today);
-    console.log(inputDateStart);
+    inputDateStart.value = today.getFullYear()+"-"+"0"+(today.getMonth()+1)+"-"+today.getDate()+"T00:00"
     let labelSD = document.createElement("label");
     labelSD.textContent = "Date de début";
     let inputDateEnd = document.createElement("input");
     inputDateEnd.type = "datetime-local";
     inputDateEnd.id = "End";
-    inputDateEnd.value= new Date();
+    inputDateEnd.value = today.getFullYear()+"-"+"0"+(today.getMonth()+1)+"-"+today.getDate()+"T23:59"
     inputDateEnd.min= inputDateStart.value;
     let labelED = document.createElement("label");
     labelED.textContent = "Date de fin";
