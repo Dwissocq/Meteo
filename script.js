@@ -87,19 +87,21 @@ nav[1].addEventListener("click", function () {
 
 // Tableaux de mesures
 
-//Récupération des données
 nav[2].addEventListener("click", function () {
 
     // ajouter le cadre pour choisir les dates
     let inputDateStart = document.createElement("input");
     inputDateStart.type="datetime-local";
+    inputDateStart.id ="Start";
+
     // let labelSD=document.createElement ("label");
     // labelSD.value="Start Date";
     // inputDateStart.appendChild(labelSD);
     let inputDateEnd = document.createElement("input");
     inputDateEnd.type="datetime-local";
+    inputDateStart.id="End";
 
-    console.log(inputDateStart.value);
+
 
     // Vérifier si le cadre des dates existe
         let dateChoice = document.getElementById("date");
@@ -108,17 +110,29 @@ nav[2].addEventListener("click", function () {
         dateChoice.appendChild(inputDateStart);
         dateChoice.appendChild(inputDateEnd);
     }
+   let  dateStartChoice=document.getElementById("Start");
+        let dateEndChoice=document.getElementById("End");
+
+
+        // Afficher la date en console
+    if (inputDateStart.value !== null){
+        console.log(document.getElementById("Start").value);
+        console.log(document.getElementById("End").value);
+    }
+
 // Selection des dates par l'utilisateur
 
-
-
 // Récupération des données sur le serveur
-    fetch(baseApiUrl + '?measure-type='+ select.value + '&start-date='+ inputDateStart.value +'&end-date='+inputDateEnd.value).then(function (response) {
+    fetch(baseApiUrl + '?measure-type='+ select.value + '&start-date='+ dateStartChoice.value +'&end-date='+dateEndChoice.value).then(function (response) {
         response.json().then(function (result) {
             console.log(result);
         });
 
-
+        // Supprimer le bloc résultat s'il existe
+        let deleteResult = document.getElementById("result");
+        if (deleteResult.firstElementChild !== null) {
+            deleteResult.removeChild(deleteResult.firstElementChild);
+        }
         // afficher le tableau sur la page
         // Créer un bloc avec les résultats (h3+h4)
         let blocResult = document.createElement("div");
