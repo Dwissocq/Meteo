@@ -11,7 +11,6 @@ nav {
     flex-wrap: wrap;
     text-align: center;
     justify-content: center;
-
 }
 
 header {
@@ -52,4 +51,8 @@ label {
 
 thead {
     background-color: lightskyblue;
+}
+
+input{
+    margin : 1px;
 }
